@@ -1,7 +1,8 @@
 import mongoose, { Schema } from 'mongoose';
 
 export const ReportSchema = new Schema({
-  user_id: { type: Schema.Types.ObjectId, ref: 'users' },
+  userId: { type: String, required: true },
+  projectId: { type: String, required: true },
   dedication: {
     hours: { type: Number, required: true },
     minutes: { type: Number, default: 0 },
