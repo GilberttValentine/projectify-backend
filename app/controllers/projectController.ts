@@ -1,7 +1,7 @@
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import * as ProjectService from '../services/projectService';
 
-export const createProject = async (req: Request, res: Response) => {
+export const createProject = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { body } = req;
     const response = await ProjectService.createProject(body);
@@ -10,11 +10,12 @@ export const createProject = async (req: Request, res: Response) => {
   } catch (error: any) {
     const status = error.status || 500;
 
-    return res.status(status).send({ status: error.status, message: error.message }).end();
+    res.status(status).send({ status: error.status, message: error.message }).end();
+    return next(error);
   }
 };
 
-export const findProjectById = async (req: Request, res: Response) => {
+export const findProjectById = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { params } = req;
     const response = await ProjectService.findProjectById(params.id);
@@ -23,11 +24,13 @@ export const findProjectById = async (req: Request, res: Response) => {
   } catch (error: any) {
     const status = error.status || 500;
 
-    return res.status(status).send({ status: error.status, message: error.message }).end();
+    res.status(status).send({ status: error.status, message: error.message }).end();
+
+    return next(error);
   }
 };
 
-export const activateProject = async (req: Request, res: Response) => {
+export const activateProject = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { params } = req;
     const response = await ProjectService.activateProject(params.id);
@@ -36,11 +39,13 @@ export const activateProject = async (req: Request, res: Response) => {
   } catch (error: any) {
     const status = error.status || 500;
 
-    return res.status(status).send({ status: error.status, message: error.message }).end();
+    res.status(status).send({ status: error.status, message: error.message }).end();
+
+    return next(error);
   }
 };
 
-export const deactivateProject = async (req: Request, res: Response) => {
+export const deactivateProject = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { params } = req;
     const response = await ProjectService.deactivateProject(params.id);
@@ -49,6 +54,8 @@ export const deactivateProject = async (req: Request, res: Response) => {
   } catch (error: any) {
     const status = error.status || 500;
 
-    return res.status(status).send({ status: error.status, message: error.message }).end();
+    res.status(status).send({ status: error.status, message: error.message }).end();
+
+    return next(error);
   }
 };

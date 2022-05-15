@@ -1,7 +1,7 @@
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import * as UserService from '../services/userService';
 
-export const createUser = async (req: Request, res: Response) => {
+export const createUser = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { body } = req;
     const response = await UserService.createUser(body);
@@ -10,6 +10,7 @@ export const createUser = async (req: Request, res: Response) => {
   } catch (error: any) {
     const status = error.status || 500;
 
-    return res.status(status).send({ status: error.status, message: error.message }).end();
+    res.status(status).send({ status: error.status, message: error.message }).end();
+    return next(error);
   }
 };

@@ -30,7 +30,7 @@ describe('Project flow success path', () => {
 
     const project = body;
 
-    await api.get(`${URI}?id=${project._id}`).expect(200);
+    await api.get(`${URI}/${project._id}`).expect(200);
   });
 
   it('Activate project by id test', async () => {
@@ -80,7 +80,7 @@ describe('Project flow bad path', () => {
   });
 
   it('Find project by id when project does not exist test', async () => {
-    await api.get(`${URI}?id=12345`).expect(404, { status: 404, message: 'Project not found' });
+    await api.get(`${URI}/12345`).expect(404, { status: 404, message: 'Project not found' });
   });
 
   it('Activate project by id when project is already activated test', async () => {
