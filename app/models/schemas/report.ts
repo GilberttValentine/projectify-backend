@@ -1,11 +1,14 @@
-import { Schema } from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 
 export const ReportSchema = new Schema({
-  user_id: { type: Schema.Types.ObjectId, ref: 'user' },
+  user_id: { type: Schema.Types.ObjectId, ref: 'users' },
   dedication: {
     hours: { type: Number, required: true },
     minutes: { type: Number, default: 0 },
   },
   weekNumber: { type: Number, required: true },
+  status: { type: Boolean, default: true },
   createdAt: { type: Date, default: Date.now },
 });
+
+export const Report = mongoose.model('Report', ReportSchema, 'reports');

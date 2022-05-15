@@ -1,17 +1,20 @@
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 
-const { MONGODB_URI } = process.env;
+dotenv.config();
+
+const { MONGODB_URI, MONGODB_TEST_URI } = process.env;
 
 const URI = MONGODB_URI ? MONGODB_URI : 'mongodb://localhost/projectify';
 
 const dbOptions: any = {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
 };
 
 export const dbConnection = () => {
-  mongoose.connect(URI, dbOptions);
-  
+  mongoose.connect(`${process.env.NODE_ENV === 'test' ? MONGODB_TEST_URI : URI}`, dbOptions);
+
   const connection = mongoose.connection;
 
   connection.once('open', () => {
