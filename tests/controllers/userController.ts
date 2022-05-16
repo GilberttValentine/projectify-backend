@@ -3,8 +3,10 @@ import { beforeEach } from 'mocha';
 import { assert } from 'chai';
 
 import { clearAll } from '../DBHelper';
-import { UserFactory } from '../factories/user';
 import { app, server } from '../../index';
+
+import { UserFactory } from '../factories/user';
+
 import * as UserRepository from '../../app/repositories/userRepository';
 
 const api = supertest(app);

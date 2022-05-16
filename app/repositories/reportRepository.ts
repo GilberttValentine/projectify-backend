@@ -12,4 +12,6 @@ export const findUserReportsByProjectAndWeek = async (userId: string, projectId:
 
 export const findUserReportsByWeek = async (userId: string, weekNumber: number, currentWeekStartDate: Date) => await Report.find({ userId, weekNumber, createdAt: { $gt: currentWeekStartDate, $lt: DateTime.utc() } }).exec();
 
-export const findReportsByUser = async (userId: string) => await Report.find({ userId }).exec();
+export const findUserReports = async (userId: string) => await Report.find({ userId: userId }).exec();
+
+export const findProjectReports = async (projectId: string) => await Report.find({ projectId: projectId }).exec();

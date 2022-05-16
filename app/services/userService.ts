@@ -17,8 +17,8 @@ export const createUser = async (user: UserDTO) => {
   await UserRepository.create(user);
 
   const body = {
-    firstName: user.firstName,
-    lastName: user.lastName,
+    names: user.names,
+    lastNames: user.lastNames,
     email: user.email,
   };
 
