@@ -7,7 +7,7 @@ export const findAll = async () => await Project.find().exec();
 
 export const findByName = async (name: string) => await Project.findOne({ name: name }).exec();
 
-export const findById = async (id: string) => await Project.findOne({ _id: id }).exec();
+export const findById = async (id: string) => await Project.findById(id).exec();
 
 export const activateById = async (id: string) => await Project.findOneAndUpdate({ _id: id }, { status: true }).exec();
 

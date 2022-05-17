@@ -124,7 +124,7 @@ describe('Project flow bad path', () => {
   });
 
   it('Find project by id when project does not exist test', async () => {
-    await api.get(`${URI}/12345`).set('Authorization', `Bearer ${token}`).expect(404, { status: 404, message: 'Project not found' });
+    await api.get(`${URI}/62806eb36b6699b9bbe1768a`).set('Authorization', `Bearer ${token}`).expect(404, { status: 404, message: 'Project not found' });
   });
 
   it('Find all projects when do not exist any project test', async () => {
@@ -141,7 +141,7 @@ describe('Project flow bad path', () => {
   });
 
   it('Activate project by id when project does not exist test', async () => {
-    await api.patch(`${URI}/123456/activate`).set('Authorization', `Bearer ${token}`).expect(404, { status: 404, message: 'Project not found' });
+    await api.patch(`${URI}/62806eb36b6699b9bbe1768a/activate`).set('Authorization', `Bearer ${token}`).expect(404, { status: 404, message: 'Project not found' });
   });
 
   it('Deactivate project by id when project is already deactivated test', async () => {
@@ -154,7 +154,7 @@ describe('Project flow bad path', () => {
   });
 
   it('Deactivate project by id when project does not exist test', async () => {
-    await api.patch(`${URI}/123456/deactivate`).set('Authorization', `Bearer ${token}`).expect(404, { status: 404, message: 'Project not found' });
+    await api.patch(`${URI}/62806eb36b6699b9bbe1768a/deactivate`).set('Authorization', `Bearer ${token}`).expect(404, { status: 404, message: 'Project not found' });
   });
 
   afterEach(async () => {

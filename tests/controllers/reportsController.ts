@@ -151,7 +151,8 @@ describe('Report flow bad path', () => {
 
   it('Create report when project does not exist', async () => {
     const report = new ReportFactory();
-
+    report.projectId = "62806eb36b6699b9bbe1768a";
+    
     await api.post(`${URI}/reports`).set('Authorization', `Bearer ${token}`).send(report).expect(404, { status: 404, message: 'Project not found' });
   });
 

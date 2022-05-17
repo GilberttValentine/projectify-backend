@@ -13,13 +13,13 @@ export const createProject = async (project: ProjectDTO) => {
 
 export const findAllProjects = async () => {
   return await ProjectRepository.findAll();
-}
+};
 
 export const findProjectById = async (id: string) => {
   const project = await ProjectRepository.findById(id);
 
   if (!project) throw new NotFoundError('Project not found');
-  
+
   return project;
 };
 
