@@ -48,6 +48,15 @@ describe('Project flow success path', () => {
     assert.equal(projectToFind.name, project.name);
   });
 
+  it('Find all projects test', async () => {
+    await api.post(URI).set('Authorization', `Bearer ${token}`).send(new ProjectFactory()).expect(200);
+
+    const { body: projects } = await api.get(URI).set('Authorization', `Bearer ${token}`).expect(200);
+
+    assert.isNotNull(projects);
+    assert.equal(projects.length, 1);
+  });
+
   it('Find project by id test', async () => {
     const { body } = await api.post(URI).set('Authorization', `Bearer ${token}`).send(new ProjectFactory()).expect(200);
     const project = body;
@@ -116,6 +125,13 @@ describe('Project flow bad path', () => {
 
   it('Find project by id when project does not exist test', async () => {
     await api.get(`${URI}/12345`).set('Authorization', `Bearer ${token}`).expect(404, { status: 404, message: 'Project not found' });
+  });
+
+  it('Find all projects when do not exist any project test', async () => {
+    const { body: projects } = await api.get(URI).set('Authorization', `Bearer ${token}`).expect(200);
+
+    assert.isNotNull(projects);
+    assert.equal(projects.length, 0);
   });
 
   it('Activate project by id when project is already activated test', async () => {

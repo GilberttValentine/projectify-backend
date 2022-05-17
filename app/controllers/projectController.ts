@@ -15,6 +15,20 @@ export const createProject = async (req: Request, res: Response, next: NextFunct
   }
 };
 
+export const findAllProjects =async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const response = await ProjectService.findAllProjects();
+
+    return res.send(response);
+  } catch (error: any) {
+    const status = error.status || 500;
+
+    res.status(status).send({ status: error.status, message: error.message }).end();
+
+    return next(error);
+  }
+}
+
 export const findProjectById = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { params } = req;

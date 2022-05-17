@@ -13,6 +13,7 @@ router.post('/users', UserController.createUser);
 
 // Projects
 router.post('/projects', SecurityAuthMiddleware.securityInterceptor, ProjectController.createProject);
+router.get('/projects', SecurityAuthMiddleware.securityInterceptor, ProjectController.findAllProjects);
 router.get('/projects/:id', SecurityAuthMiddleware.securityInterceptor, ProjectController.findProjectById);
 router.patch('/projects/:id/activate', SecurityAuthMiddleware.securityInterceptor, ProjectController.activateProject);
 router.patch('/projects/:id/deactivate', SecurityAuthMiddleware.securityInterceptor, ProjectController.deactivateProject);
