@@ -28,7 +28,7 @@ La api está constituida por 13 endpoints, de los cuales 11 cuentan con un Secur
 Authorization: Bearer <valid token>
 ```
 
-Insertar imagen
+!["Referemce"](./screenshots/5.png)
 
 ## Endpoints
 
@@ -55,6 +55,7 @@ METHOD |  POST   |
 
 ### Projects
 - **Create project** | ✓ Authorization required
+
 Crea un proyecto en el sistema
 PATH   |  /projects   |
 ---    | --- | 
