@@ -3,6 +3,6 @@
 /build
 /coverage
 /.nyc_output
-
+/dist
 # enviroments
 *.env

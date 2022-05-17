@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm start",
+    "build": "tsc",
+    "start": "node dist/index.js",
     "dev": "NODE_ENV=development ts-node-dev index.ts",
     "test": "NODE_ENV=test mocha -r ts-node/register 'tests/controllers/*.ts' -r dotenv/config --timeout 2000000",
     "coverage": "nyc --reporter=lcov --reporter=text-summary npm run test"
