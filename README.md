@@ -40,13 +40,10 @@ https://projectifybackend.herokuapp.com/api
 ### Users
 - **Create user**<br>
 Crea un usuario en el sistema<br>
-<br>
 
 PATH   |  /users   |
 ---    | --- | 
 METHOD |  POST   |
-
-<br>
 
 ``` JSON
 {
@@ -175,6 +172,7 @@ METHOD |  POST   |
 
 - **Validate token**
 Valida el token de un usuario
+
 PATH   |  /security/verify-token   |
 ---    | --- | 
 METHOD |  POST   |
