@@ -38,8 +38,8 @@ https://projectifybackend.herokuapp.com/api
 ```
 
 ### Users
-- **Create user**
-Crea un usuario en el sistema
+- **Create user**<br>
+Crea un usuario en el sistema<br>
 PATH   |  /users   |
 ---    | --- | 
 METHOD |  POST   |
