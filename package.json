@@ -10,7 +10,7 @@
     "test": "NODE_ENV=test mocha -r ts-node/register 'tests/controllers/*.ts' -r dotenv/config --timeout 2000000",
     "coverage": "nyc --reporter=lcov --reporter=text-summary npm run test"
   },
-  "author": "",
+  "author": "Pablo Guzman",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
@@ -51,5 +51,9 @@
     "lines": "&gt;90",
     "functions": "&gt;90",
     "statements": "&gt;90"
+  },
+  "engines": {
+    "node": "16.13.2",
+    "npm": "8.1.2"
   }
 }
